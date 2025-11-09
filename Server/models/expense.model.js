@@ -1,0 +1,16 @@
+import mongoose from "mongoose";
+
+const Schema = mongoose.Schema;
+
+const expenseSchema = new Schema({
+    name: {type:String, required: true},
+    amount: {type:Number, required: true},
+    date: {type:Date, required: true},
+    type: {type:String, required:true},
+},{
+    timestamps: true,
+})
+
+const Expense = mongoose.model('Expense', expenseSchema);
+
+export default Expense;

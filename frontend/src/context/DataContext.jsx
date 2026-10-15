@@ -7,7 +7,7 @@ export const DataProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState("");
 
-    const baseUrl = 'https://expense-tracker-5x2f.vercel.app/'
+    const baseUrl = 'https://expense-tracker-m3tx.onrender.com'
 
 
     useEffect(() => {

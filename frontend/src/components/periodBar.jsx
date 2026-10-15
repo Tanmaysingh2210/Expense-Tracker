@@ -35,7 +35,6 @@ const groupByPeriod = (transactions = [], period = "monthly") => {
             key = `${d.getFullYear()}`; 
             label = key;
         }
-
         const num = Number(tx.amount) || 0;
         const record = map.get(key) ?? { key, label, income: 0, expense: 0 };
         if (num > 0) record.income += num;
@@ -55,12 +54,9 @@ const groupByPeriod = (transactions = [], period = "monthly") => {
 
 export default function PeriodBars({ defaultPeriod = "monthly" }) {
     const [period, setPeriod] = useState(defaultPeriod); // "monthly" or "yearly"
-
     const {filterExpense, loading} = useContext(DataContext);
     const filteredTransactions = filterExpense();
-
     const data = useMemo(() => groupByPeriod(filteredTransactions, period), [filteredTransactions, period]);
-
     if (loading) return <p>Loading...</p>;
     if (!data || data.length === 0) return <p>No data available for the selected period.</p>;
 
@@ -77,7 +73,6 @@ export default function PeriodBars({ defaultPeriod = "monthly" }) {
                     </select>
                 </div>
             </div>
-
             <div style={{ width: "100%", height: 360 }}>
                 <ResponsiveContainer>
                     <BarChart data={data} margin={{ top: 10, right: 16, left: 0, bottom: 30 }}>

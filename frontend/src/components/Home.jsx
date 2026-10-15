@@ -15,12 +15,6 @@ const Home = () => {
 
                 <TransactionList />
             </div>
-            {/* <div className='add flex center'>
-                <button className='addd' onClick={() => setIsModalOpen(true)}>
-                    <span><img src={Assets.add} alt="" /></span>
-                    <span>Add Transaction</span>
-                </button>
-            </div> */}
             {isModalOpen && <AddTransactionModal onClose={() => setIsModalOpen(false)} />}
         </div>
     )

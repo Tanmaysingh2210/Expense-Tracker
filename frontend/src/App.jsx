@@ -1,10 +1,8 @@
-import { useState } from 'react'
 import { Routes, Route } from "react-router-dom";
 import './App.css'
 import Navbar from './components/Navbar'
 import Home from './components/Home';
 import Statistics from './components/Statistics'
-import History from './components/History';
 import AddTransactionModal from './components/AddTransactionModal';
 
 function App() {

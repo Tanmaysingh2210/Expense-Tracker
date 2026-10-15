@@ -6,6 +6,10 @@
   font-family: 'Lato', sans-serif;
 }
 
+body{
+  overflow-x: hidden;
+}
+
 :root {
   --main-color: #42e3d0;
 }

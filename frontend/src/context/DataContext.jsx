@@ -7,11 +7,13 @@ export const DataProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState("");
 
+    const baseUrl = 'http://localhost:5000'
+
 
     useEffect(() => {
         const fetchExpense = async () => {
             try {
-                const response = await fetch('http://localhost:5000/expenses/');
+                const response = await fetch(`${baseUrl}/expenses`);
                 const data = await response.json();
                 if (data.length > 0) {
                     setExpenses(data);
@@ -28,7 +30,7 @@ export const DataProvider = ({ children }) => {
 
     const addExpense = async (newExpense) => {
         try {
-            const res = await fetch('http://localhost:5000/expenses/add/', {
+            const res = await fetch(`${baseUrl}/expenses/add`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -46,7 +48,7 @@ export const DataProvider = ({ children }) => {
 
     const deleteExpense = async (id) => {
         try {
-            await fetch(`http://localhost:5000/expenses/${id}`, {
+            await fetch(`${baseUrl}/expenses/${id}`, {
                 method: "DELETE",
             });
 
@@ -92,7 +94,7 @@ export const DataProvider = ({ children }) => {
     };
 
     return (
-        <DataContext.Provider value={{ expenses, setExpenses, addExpense, loading, deleteExpense, filter, setFilter, filterExpense,getTotals }}>
+        <DataContext.Provider value={{ expenses, setExpenses, addExpense, loading, deleteExpense, filter, setFilter, filterExpense, getTotals }}>
             {children}
         </DataContext.Provider>
     );

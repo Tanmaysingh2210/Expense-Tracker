@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { Assets } from '../assets/Assets'
 import { DataContext } from '../context/DataContext'
-
 const Balance = () => {
     const { getTotals } = useContext(DataContext);
     const { income, expense } = getTotals();

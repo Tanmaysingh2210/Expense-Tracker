@@ -14,7 +14,6 @@ router.route('/add').post(async (req, res) => {
     const name = req.body.name;
     const amount = req.body.amount;
     const date = Date.parse(req.body.date);
-   
     const type = amount < 0 ? 'expense' : 'income';
 
     const newExpense = new Expense({
@@ -24,10 +23,9 @@ router.route('/add').post(async (req, res) => {
         type,
     });
 
-
     try {
         const savedExpense = await newExpense.save();
-        res.json(savedExpense); // ✅ send back new expense
+        res.json(savedExpense);
     } catch (err) {
         res.status(400).json("Error: " + err);
     }
